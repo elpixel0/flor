@@ -90,4 +90,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
 var floresbtn = document.getElementById('flores-btn');
 
-floresbtn.addEventListener('click', function() {} )
+floresbtn.addEventListener('click', function() {
+  var music = document.getElementById('bg-music');
+    if (music) {
+      music.currentTime = 0;
+      var playPromise = music.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(function(error) {
+          alert('No se pudo reproducir la música. Verifica el archivo o permisos del navegador.');
+        });
+      }
+    }
+} )
